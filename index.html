@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cosmic Defender | Arcade Shooter</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="game-wrapper">
+    <!-- Heads Up Display (HUD) -->
+    <div id="hud" class="hud">
+      <div class="hud-item">SCORE: <span id="score-val">0</span></div>
+      <div class="hud-item">HIGH SCORE: <span id="highscore-val">0</span></div>
+      <div class="hud-item">HEALTH: <span id="health-val">100</span>%</div>
+    </div>
+
+    <!-- Main Game Canvas -->
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+    <!-- Overlay Screens -->
+    <div id="start-screen" class="screen-overlay active">
+      <h1 class="game-title">COSMIC DEFENDER</h1>
+      <p class="instructions">
+        Use <strong>[A] / [D]</strong> or <strong>[←] / [→]</strong> to Move<br/>
+        Press <strong>[SPACEBAR]</strong> to Shoot
+      </p>
+      <button id="start-btn" class="arcade-btn">START GAME</button>
+    </div>
+
+    <div id="gameover-screen" class="screen-overlay">
+      <h1 class="game-title danger">GAME OVER</h1>
+      <p class="final-score">FINAL SCORE: <span id="final-score-val">0</span></p>
+      <button id="restart-btn" class="arcade-btn">PLAY AGAIN</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

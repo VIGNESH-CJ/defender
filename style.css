@@ -1,0 +1,131 @@
+:root {
+  --bg-color: #05050d;
+  --neon-cyan: #00f0ff;
+  --neon-pink: #ff0055;
+  --neon-yellow: #ffe600;
+  --font-retro: 'Press Start 2P', monospace;
+  --font-hud: 'Rajdhani', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: #fff;
+  font-family: var(--font-hud);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.game-wrapper {
+  position: relative;
+  width: 800px;
+  height: 600px;
+  border: 4px solid var(--neon-cyan);
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.3), inset 0 0 20px rgba(0, 240, 255, 0.2);
+  border-radius: 8px;
+  background-color: #000;
+}
+
+/* --- HUD --- */
+.hud {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-retro);
+  font-size: 0.8rem;
+  z-index: 10;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(0,0,0,0.8), transparent);
+}
+
+.hud-item span {
+  color: var(--neon-cyan);
+}
+
+#health-val {
+  color: var(--neon-pink);
+}
+
+/* --- CANVAS --- */
+canvas {
+  display: block;
+  background-color: #020208;
+}
+
+/* --- OVERLAY SCREENS --- */
+.screen-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(5, 5, 13, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  z-index: 20;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.screen-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.game-title {
+  font-family: var(--font-retro);
+  font-size: 2.2rem;
+  color: var(--neon-cyan);
+  text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
+  text-align: center;
+}
+
+.game-title.danger {
+  color: var(--neon-pink);
+  text-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink);
+}
+
+.instructions, .final-score {
+  font-size: 1.2rem;
+  text-align: center;
+  line-height: 1.8;
+  color: #a0a0c0;
+}
+
+.arcade-btn {
+  font-family: var(--font-retro);
+  font-size: 1rem;
+  padding: 16px 32px;
+  background: transparent;
+  color: var(--neon-yellow);
+  border: 2px solid var(--neon-yellow);
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 230, 0, 0.4);
+  transition: all 0.2s ease;
+}
+
+.arcade-btn:hover {
+  background-color: var(--neon-yellow);
+  color: #000;
+  box-shadow: 0 0 25px rgba(255, 230, 0, 0.8);
+  transform: scale(1.05);
+}
